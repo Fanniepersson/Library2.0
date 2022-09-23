@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Customer>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="text-center">
+            <h2 class="display-5">Kund namn</h2>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Day of loan</th>
+                    <th scope="col">Day of return</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+
+                @foreach (var item in Model)
+                {
+
+                    @for (int i = 0; i < item.LibraryLoans.Count; i++)
+                    {
+                <tr>
+                    @if (item.LibraryLoans[i].IsReturned == true)
+                    {
+                        <td>@Html.DisplayFor(modelItem => item.LibraryLoans[i].Book.Title)</td>
+                        <td>@Html.DisplayFor(modelItem => item.LibraryLoans[i].DayOfLoan)</td>
+                        <td>@Html.DisplayFor(modelItem => item.LibraryLoans[i].DayOfReturn)</td>
+                    }
+
+
+
+
+                </tr>
+                    }
+
+                }
+
+
+        </table>
+
+    </div>
+
+</div>

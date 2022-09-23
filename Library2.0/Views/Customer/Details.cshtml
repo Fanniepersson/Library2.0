@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Customer>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="text-center">
+            <h2 class="display-5">Details</h2>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Adress</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Zipcode</th>
+                    <th scope="col">Phone Number</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                         <td>@Html.DisplayFor(modelItem => item.City)</td>
+                         <td>@Html.DisplayFor(modelItem => item.ZipCode)</td>
+                         <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+
+                        <td>
+                             <a asp-action="ActiveLoans" asp-route-id="@item.CustomerId" class="btn btn-outline-info">Nuvarande lån</a>
+                            <a asp-action="GetHistoryLoans" asp-route-id="@item.CustomerId" class="btn btn-outline-info">Lån historik</a>
+
+                         </td>
+                     </tr>
+                }
+              
+
+        </table>
+
+    </div>
+
+</div>

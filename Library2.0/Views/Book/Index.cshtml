@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Book>
+
+<div class="text-center">
+    <h2>Books</h2>
+    <div class="row">
+        @foreach (var book in Model)
+        {
+            <partial name="_bookCard" model="book" />
+        }
+    </div>
+
+</div>
+
